@@ -1,40 +1,62 @@
 # ConvoCanvas
 
-AI-powered creative content studio that transforms AI conversation history into multimedia content ideas.
+> **Bridge the context gap between AI conversations and long-term projects.**
 
-## Vision
+ConvoCanvas transforms exported AI conversations into actionable content ideas and context summaries, solving the memory limitation problem that technical professionals face when working on complex, multi-session projects.
 
-ConvoCanvas helps technical professionals document their learning journeys by extracting insights from AI conversations and generating content ideas for LinkedIn posts, blog articles, and educational content.
+## 🧠 The Problem
 
-## Current Status: MVP Development
+As a network engineer transitioning into DevOps and automation, I've broken my Linux installs more times than I can count building local LLMs and complex infrastructure. But the real wall I hit wasn't technical—it was **context window limitations**.
 
-- ✅ Project planning complete
-- ✅ Repository structure established  
-- 🚧 Conversation parser development
-- 🚧 Content suggestion engine
-- 📋 Web interface (planned)
+AI services like Claude and Gemini forget everything between sessions. For any long-term technical project, their memory is too short. I found myself constantly re-explaining complex setups, architectural decisions, and troubleshooting context.
 
-## Quick Start
+## 💡 The Solution
+
+ConvoCanvas is my external memory for AI conversations. It processes exported chats and generates:
+
+- **Context summaries** to re-prime the next AI session
+- **Technical decision logs** from conversation history
+- **Content ideas** (LinkedIn posts, blog topics) extracted from learning processes
+- **Conversation themes** to track project evolution
+
+**Real Impact**: Recently used ConvoCanvas to maintain context across a 3-day MPLS automation pipeline troubleshooting session—something impossible with standard AI chat limits.
+
+## 🔧 How It Works
+
+1. **Export** conversations using the [SaveMyPhind browser extension](https://github.com/Hugo-COLLIN/SaveMyPhind-conversation-exporter) by Hugo Collin
+2. **Upload** to ConvoCanvas backend (FastAPI + Python)
+3. **Process** conversations to extract key decisions, technical concepts, and learning moments
+4. **Generate** content ideas and context summaries for future sessions
+
+```mermaid
+graph LR
+    A[AI Conversation] --> B[SaveMyPhind Export]
+    B --> C[ConvoCanvas API]
+    C --> D[Content Analysis]
+    D --> E[Context Summary]
+    D --> F[Content Ideas]
+    E --> G[Next AI Session]
+    F --> H[LinkedIn/Blog]
+```
+
+## 🚀 Quick Start
 
 ### Development Setup
 
 ```bash
-# Clone repository
-git clone https://github.com/YOUR_USERNAME/convocanvas.git
+# Clone and setup
+git clone https://github.com/rduffyuk/convocanvas.git
 cd convocanvas
 
-# Run setup script
-./scripts/dev-setup.sh
-
-# Start backend
+# Backend (Python/FastAPI)
 cd backend
-source venv/bin/activate
-uvicorn app.main:app --reload
+python -m venv venv
+source venv/bin/activate  # or `venv\Scripts\activate` on Windows
+pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
-# Start frontend (separate terminal)
-cd frontend
-npm install
-npm run dev
+# Test the API
+curl -X GET http://localhost:8000/
 ```
 
 ### Docker Setup
@@ -43,35 +65,99 @@ npm run dev
 docker-compose up --build
 ```
 
-## Architecture
+### Try It Out
 
-- **Backend**: FastAPI + Python for conversation processing
-- **Frontend**: Next.js + React for web interface  
-- **Processing**: AI-powered content analysis and suggestion generation
-- **Export**: Manual conversation exports via browser extensions
+```bash
+# Upload a conversation file
+curl -X POST "http://localhost:8000/api/conversations/upload" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@your-conversation.md"
 
-## Roadmap
+# Analyze content
+curl -X POST "http://localhost:8000/api/conversations/analyze" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@your-conversation.md"
+```
 
-### Week 1-2: Core Parser
-- [x] Repository setup
-- [ ] Conversation file parser
-- [ ] Basic content extraction
-- [ ] Unit tests
+## 🏗️ Current Status
 
-### Week 3-4: Content Engine  
-- [ ] Content suggestion algorithms
-- [ ] Template system
-- [ ] Output formatting
+- ✅ **MVP Complete**: Core conversation parsing and content extraction
+- ✅ **API Endpoints**: Upload and analyze conversations via REST API
+- ✅ **Content Generation**: Extract LinkedIn posts, blog topics, technical concepts
+- ✅ **SaveMyPhind Integration**: Parse exported conversation formats
+- 🚧 **Web Interface**: Simple upload/analysis UI (planned)
+- 📋 **Advanced Features**: AI-powered context summarization (planned)
 
-### Week 5-6: Web Interface
-- [ ] Upload interface
-- [ ] Content review/editing
-- [ ] Export capabilities
+## 🏛️ Architecture
 
-## Contributing
+- **Backend**: FastAPI + Python
+  - Conversation parsing (`conversation_parser.py`)
+  - Content analysis (`content_analyzer.py`) 
+  - RESTful API endpoints (`/api/conversations/`)
+- **Input**: Manual conversation exports (Markdown/TXT)
+- **Processing**: Technical concept extraction, theme identification
+- **Output**: Structured JSON with content suggestions
 
-This is an open-source learning project. Contributions welcome!
+## 🛣️ Roadmap
 
-## License
+### Phase 1: Core Platform ✅
+- [x] Conversation file parser
+- [x] Basic content extraction
+- [x] API endpoints
+- [x] SaveMyPhind format support
 
-MIT License - see LICENSE file for details.
+### Phase 2: Enhanced Analysis 🚧
+- [ ] Context summarization for session continuity
+- [ ] Technical decision tracking
+- [ ] Multi-conversation thread analysis
+- [ ] Web interface for easier testing
+
+### Phase 3: Automation 📋
+- [ ] Browser extension integration
+- [ ] Automated content generation
+- [ ] Export to content platforms
+- [ ] Knowledge graph visualization
+
+## 🎯 Use Cases
+
+**For Technical Professionals:**
+- Maintain context across multi-day debugging sessions
+- Extract learning insights from AI-assisted problem solving
+- Generate technical content from real troubleshooting experiences
+
+**For Content Creators:**
+- Transform technical conversations into blog post ideas
+- Generate LinkedIn posts from learning moments
+- Track technical learning journey over time
+
+**For Career Transitioners:**
+- Document skill development through AI conversations
+- Create portfolio content from learning processes
+- Bridge knowledge gaps between domains
+
+## 🤝 Contributing
+
+This started as a personal tool for my Windows→Linux→DevOps journey, but it's built to help anyone facing the AI context window problem. Contributions welcome!
+
+**Built with conversations that ConvoCanvas now analyzes** - the entire project was planned in the very AI chats that it processes.
+
+## 📋 Requirements
+
+- Python 3.12+
+- FastAPI
+- SaveMyPhind browser extension for conversation exports
+
+## 🔗 Related Projects
+
+- [SaveMyPhind Extension](https://github.com/Hugo-COLLIN/SaveMyPhind-conversation-exporter) by Hugo Collin - Essential for exporting conversations
+- Obsidian integration for manual knowledge management workflows
+
+## 📄 License
+
+MIT License - See [LICENSE](LICENSE) for details.
+
+---
+
+**From network engineering to automation, one conversation at a time.** 🌐→🤖
