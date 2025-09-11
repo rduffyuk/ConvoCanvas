@@ -29,14 +29,61 @@ ConvoCanvas is my external memory for AI conversations. It processes exported ch
 4. **Generate** content ideas and context summaries for future sessions
 
 ```mermaid
-graph LR
-    A[AI Conversation] --> B[SaveMyPhind Export]
-    B --> C[ConvoCanvas API]
-    C --> D[Content Analysis]
-    D --> E[Context Summary]
-    D --> F[Content Ideas]
-    E --> G[Next AI Session]
-    F --> H[LinkedIn/Blog]
+---
+config:
+  layout: fixed
+  theme: redux-dark
+  look: neo
+---
+flowchart TB
+ subgraph subGraph0[" "]
+    direction LR
+        I("💡<br>LinkedIn Ideas")
+        H("📦<br>JSON Response")
+        J("✍️<br>Blog Topics")
+        K("📊<br>Mermaid")
+        L("🎨<br>Draw.io")
+  end
+ subgraph subGraph1["ConvoCanvas Architecture"]
+        B("📄<br>Save My Chatbot")
+        A("🤖<br>Claude AI")
+        C("🌐<br>Edge Browser")
+        D("🗂️<br>Obsidian Vault")
+        E("📜<br>Bash Script")
+        P("⏰<br>Crontab")
+        F("🚀<br>FastAPI Backend")
+        M("📂<br>GitHub Repo")
+        G("🧠<br>Content Engine")
+        subGraph0
+        X("📈<br>Analytics")
+  end
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    P --> E
+    E --> F
+    M -.-> F
+    F --> G
+    G --> H
+    H --> I & J & K & L
+    I --> X
+    L --> X
+    style I fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
+    style H fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
+    style J fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
+    style K fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
+    style L fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
+    style B fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
+    style A fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
+    style C fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
+    style D fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
+    style E fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
+    style P fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
+    style F fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
+    style M fill:#111827,stroke:#ff6600,stroke-width:2px,color:#e2e8f0
+    style G fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
+    style X fill:#111827,stroke:#ff6600,stroke-width:2px,color:#e2e8f0
 ```
 
 ## 🚀 Quick Start
