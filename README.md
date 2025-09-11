@@ -1,8 +1,14 @@
 # ConvoCanvas
 
+> **🚧 Work in Progress - Not Ready for Production Use 🚧**
+
 > **Bridge the context gap between AI conversations and long-term projects.**
 
 ConvoCanvas transforms exported AI conversations into actionable content ideas and context summaries, solving the memory limitation problem that technical professionals face when working on complex, multi-session projects.
+
+## ⚠️ Development Status
+
+**This is an active development project and NOT ready for release.** Currently building MVP features with more commits and improvements coming regularly. Expect breaking changes until v1.0.0 release.
 
 ## 🧠 The Problem
 
@@ -130,12 +136,15 @@ curl -X POST "http://localhost:8000/api/conversations/analyze" \
 
 ## 🏗️ Current Status
 
-- ✅ **MVP Complete**: Core conversation parsing and content extraction
-- ✅ **API Endpoints**: Upload and analyze conversations via REST API
-- ✅ **Content Generation**: Extract LinkedIn posts, blog topics, technical concepts
+- ✅ **Basic MVP**: Core conversation parsing and content extraction
+- ✅ **API Foundation**: Upload and analyze endpoints (basic functionality)
+- ✅ **Content Extraction**: Extract LinkedIn posts, blog topics, technical concepts
 - ✅ **SaveMyPhind Integration**: Parse exported conversation formats
+- 🚧 **Error Handling**: Robust error handling and validation (in progress)
+- 🚧 **Testing Suite**: Unit and integration tests (in progress)
 - 🚧 **Web Interface**: Simple upload/analysis UI (planned)
 - 📋 **Advanced Features**: AI-powered context summarization (planned)
+- 📋 **Production Ready**: Security, logging, monitoring (future)
 
 ## 🏛️ Architecture
 
@@ -186,9 +195,17 @@ curl -X POST "http://localhost:8000/api/conversations/analyze" \
 
 ## 🤝 Contributing
 
-This started as a personal tool for my Windows→Linux→DevOps journey, but it's built to help anyone facing the AI context window problem. Contributions welcome!
+**Note: This project is in early development.** While contributions are welcome, expect frequent changes to the codebase as I build toward the first stable release.
+
+This started as a personal tool for my Windows→Linux→DevOps journey, but it's built to help anyone facing the AI context window problem.
 
 **Built with conversations that ConvoCanvas now analyzes** - the entire project was planned in the very AI chats that it processes.
+
+### Development Roadmap
+- **Phase 1 (Current)**: Core parsing and basic content extraction
+- **Phase 2**: Robust error handling, testing, and web interface  
+- **Phase 3**: Advanced AI features and production readiness
+- **v1.0.0**: First stable release
 
 ## 📋 Requirements
 
