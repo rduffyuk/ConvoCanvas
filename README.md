@@ -199,7 +199,7 @@ This started as a personal tool for my Windows→Linux→DevOps journey, but it'
 ## 🔗 Related Projects
 
 - [SaveMyPhind Extension](https://github.com/Hugo-COLLIN/SaveMyPhind-conversation-exporter) by Hugo Collin - Essential for exporting conversations
-- Obsidian integration for manual knowledge management workflows
+- [Obsidian](https://obsidian.md/) - Knowledge management app for manual workflow integration
 
 ## 📄 License
 
