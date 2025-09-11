@@ -23,7 +23,7 @@ jobs:
         cd backend
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pytest
+        pip install pytest flake8 black
     
     - name: Run tests
       run: |
