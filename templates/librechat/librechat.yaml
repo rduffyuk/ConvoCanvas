@@ -1,0 +1,167 @@
+# Optimized LibreChat Configuration for ISP Network Automation Lab
+# RTX 4080 16GB VRAM - Multimodal Focus
+# Updated January 2025
+
+version: 1.2.8
+
+endpoints:
+  # Agents endpoint - Enhanced with Web Search and RAG
+  agents:
+    recursionLimit: 25
+    maxRecursionLimit: 50
+    disableBuilder: false
+    capabilities:
+      - "web_search"     # Enhanced with Serper API
+      - "execute_code"
+      - "file_search"    # Uses your RAG API + vector database
+      - "actions"
+      - "tools"
+      - "artifacts"
+    # Pre-configured agents
+    defaultAgents:
+      - name: "Obsidian Summarizer"
+        model: "openai/gpt-oss-20b"
+        instructions: |
+          You are an expert at analyzing and summarizing Claude conversations from Obsidian.
+
+          When asked to summarize Claude conversations:
+          1. Access files from the mounted Obsidian vault
+          2. Extract key topics, decisions, and outcomes
+          3. Create structured summaries with:
+             - Main topics discussed
+             - Key technical solutions
+             - Configuration changes made
+             - Action items or next steps
+          4. Format output in markdown for easy copying back to Obsidian
+
+          You have access to the Claude conversations directory and can process multiple files.
+        capabilities: ["file_search", "execute_code"]
+
+  custom:
+    # LM Studio - GPT OSS 20B Model
+    - name: "GPT OSS 20B"
+      apiKey: "lm-studio"
+      baseURL: "http://host.docker.internal:1234/v1"
+      models:
+        default: ["openai/gpt-oss-20b"]
+      titleConvo: true
+      titleModel: "openai/gpt-oss-20b"
+      modelDisplayLabel: "GPT OSS 20B"
+
+    # LM Studio - Google Gemma 3 27B Model
+    - name: "Gemma 3 27B"
+      apiKey: "lm-studio"
+      baseURL: "http://host.docker.internal:1234/v1"
+      models:
+        default: ["google/gemma-3-27b"]
+      titleConvo: true
+      titleModel: "google/gemma-3-27b"
+      modelDisplayLabel: "Gemma 3 27B"
+
+    # LM Studio - Text Embedding Model
+    - name: "Text Embeddings"
+      apiKey: "lm-studio"
+      baseURL: "http://host.docker.internal:1234/v1"
+      models:
+        default: ["text-embedding-nomic-embed-text-v1.5"]
+      titleConvo: false
+      modelDisplayLabel: "Nomic Embed Text v1.5"
+
+
+# File configuration - Optimized for network automation files
+fileConfig:
+  # Global settings
+  serverFileSizeLimit: 95  # MB
+  avatarSizeLimit: 2       # MB
+  
+  endpoints:
+    # Assistants (keep existing config)
+    assistants:
+      fileFilter: [".pdf",".txt",".md",".yaml",".yml",".json",".py",".sh",".conf",".cfg",".log",".jpg",".jpeg",".png",".gif",".webp"]
+      fileSizeLimit: 500
+      totalSizeLimit: 5000
+    
+    # Custom endpoints - ALL support file uploads via RAG
+    custom:
+      fileLimit: 15
+      fileSizeLimit: 95
+      totalSizeLimit: 750
+      # Network automation file types
+      supportedMimeTypes:
+        # Text files
+        - "text/plain"
+        - "text/markdown"
+        - "text/csv"
+        - "text/yaml"
+        - "application/x-yaml"
+        - "application/json"
+        - "text/x-config"
+        - "application/x-ini"
+        - "text/x-log"
+        # Code files
+        - "text/x-python"
+        - "application/x-shellscript"
+        - "text/x-java-source"
+        - "text/javascript"
+        # Documents  
+        - "application/pdf"
+        # Images (for network diagrams, screenshots)
+        - "image/jpeg"
+        - "image/png"
+        - "image/gif"
+        - "image/webp"
+        - "image/svg+xml"
+    
+    # Default for any other endpoints
+    default:
+      fileLimit: 10
+      fileSizeLimit: 95
+      totalSizeLimit: 500
+      supportedMimeTypes:
+        - "text/plain"
+        - "text/markdown"
+        - "application/pdf"
+        - "text/csv"
+        - "application/json"
+        - "text/yaml"
+        - "application/x-yaml"
+        - "text/x-python"
+        - "application/x-shellscript"
+        - "image/jpeg"
+        - "image/png"
+
+# Interface settings (Perplexity-like experience)
+interface:
+  endpointsMenu: true
+  modelSelect: true
+  parameters: true
+  sidePanel: true
+  presets: true
+  webSearch: true
+  webSearchOptions:
+    displaySources: true    # Show sources like Perplexity
+    showCitations: true     # Inline citations [1], [2], etc.
+    autoSearch: false       # Don't auto-search every query
+    maxResults: 5          # Number of search results
+    # Auto-trigger search for specific phrases
+    searchTriggerPatterns:
+      - "check online"
+      - "check on github"
+      - "check on reddit"
+      - "search github"
+      - "search reddit"
+      - "look online"
+      - "find online"
+      - "what does github say"
+      - "what does reddit say"
+      - "latest news"
+      - "current information"
+      - "recent updates"
+      - "search for"
+      - "find information about"
+
+# Performance notes:
+# 🧠 GPT OSS 20B - Large language model with strong general capabilities
+# 💎 Gemma 3 27B - Google's advanced model with ~15-16GB VRAM usage
+# 📊 Text Embeddings - Nomic embedding model for semantic search and RAG
+
