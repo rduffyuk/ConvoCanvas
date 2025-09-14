@@ -1,0 +1,54 @@
+# LibreChat Configuration Template
+# Sanitized template for ConvoCanvas integration
+version: 1.2.8
+cache: true
+
+endpoints:
+  # Local LM Studio Models with Search
+  custom:
+    - name: "Local AI + Search"
+      baseURL: "http://host.docker.internal:1234/v1"
+      apiKey: "lm-studio"
+      models:
+        default: ["your-model-name"]
+        fetch: false
+      titleConvo: true
+      summarize: true
+      titleModel: "your-model-name"
+      summaryModel: "your-model-name"
+      dropParams: ["stop"]
+      tools: true
+      search: true
+
+  # Agent Endpoints with Full Capabilities
+  agents:
+    capabilities:
+      - "web_search"
+      - "execute_code"
+      - "file_search"
+    model: "your-model-name"
+    baseURL: "http://host.docker.internal:1234/v1"
+    apiKey: "lm-studio"
+    tools: true
+    search: true
+
+  # OpenAI endpoint for agents (pointing to LM Studio)
+  openAI:
+    baseURL: "http://host.docker.internal:1234/v1"
+    apiKey: "lm-studio"
+    models:
+      - "your-model-name"
+    dropParams: ["stop"]
+    titleConvo: true
+    summarize: true
+
+# Global search settings
+search:
+  provider: "serper"
+  api_key: "${SERPER_API_KEY}"
+  num_results: 10
+  safe_search: "moderate"
+  country: "us"
+  language: "en"
+  include_citations: true
+  citation_style: "numbered"
