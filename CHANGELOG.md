@@ -5,6 +5,29 @@ All notable changes to ConvoCanvas will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.2] - 2025-09-14
+
+### Security
+- **CRITICAL FIX**: Added explicit permissions to GitHub Actions workflows (resolves CodeQL alert)
+- **Principle of Least Privilege**: Implemented minimal permissions (`contents: read`, `actions: read`)
+- **Updated Actions**: Upgraded to latest secure versions (checkout@v4, setup-python@v5, setup-node@v4)
+
+### Added
+- **Security Infrastructure**: Comprehensive security policy and procedures
+- **Automated Security Scanning**: CodeQL analysis and dependency vulnerability detection
+- **Dependabot Integration**: Automated dependency updates for Python, Node.js, GitHub Actions, and Docker
+- **Security Workflows**: Weekly automated security checks and monitoring
+- **Full-Stack CI**: Enhanced workflow with frontend testing and building
+
+### Enhanced
+- **CI/CD Pipeline**: Added Node.js setup, frontend linting, and build verification
+- **Security Documentation**: Added SECURITY.md with private disclosure process
+- **Dependency Management**: Automated security updates and vulnerability monitoring
+
+### Fixed
+- **GitHub Actions Security**: Resolved missing workflow permissions vulnerability
+- **Workflow Permissions**: Implemented security best practices for all automation
+
 ## [0.0.1] - 2025-09-14
 
 ### Added
