@@ -74,60 +74,123 @@ DISABLE_GPU=true              # Force disable GPU acceleration
 ```mermaid
 ---
 config:
-  layout: fixed
   theme: redux-dark
   look: neo
 ---
 flowchart TB
- subgraph subGraph0[" "]
-    direction LR
-        I("💡<br>LinkedIn Ideas")
-        H("📦<br>JSON Response")
-        J("✍️<br>Blog Topics")
-        K("📊<br>Mermaid")
-        L("🎨<br>Draw.io")
-  end
- subgraph subGraph1["ConvoCanvas Architecture"]
-        B("📄<br>Save My Chatbot")
-        A("🤖<br>Claude AI")
-        C("🌐<br>Edge Browser")
-        D("🗂️<br>Obsidian Vault")
-        E("📜<br>Bash Script")
-        P("⏰<br>Crontab")
-        F("🚀<br>FastAPI Backend")
-        M("📂<br>GitHub Repo")
-        G("🧠<br>Content Engine")
-        subGraph0
-        X("📈<br>Analytics")
-  end
-    A --> B
-    B --> C
-    C --> D
+    subgraph Input["📥 Input Layer"]
+        A("🤖<br>AI Conversations")
+        B("📄<br>SaveMyPhind<br>Export")
+        C("📋<br>Markdown/TXT<br>Files")
+    end
+
+    subgraph API["🚀 ConvoCanvas API (FastAPI)"]
+        D("🎛️<br>Feature Flags<br>System")
+        E("📡<br>/api/conversations/<br>upload")
+        F("🧠<br>/api/v2/conversations/<br>analyze-enhanced")
+        G("⚡<br>/api/v3/conversations/<br>gpu-accelerated")
+    end
+
+    subgraph Processing["🔄 Analysis Engine"]
+        H("📊<br>Enhanced Content<br>Analyzer")
+        I("💭<br>Decision<br>Extraction")
+        J("😊<br>Sentiment<br>Analysis")
+        K("🏷️<br>Technical Domain<br>Classification")
+        L("🧮<br>NLP Pipeline<br>spaCy + TextBlob")
+    end
+
+    subgraph Visualization["📈 Visualization Layer"]
+        M("🗺️<br>Interactive<br>Mindmaps")
+        N("📊<br>Plotly<br>Visualizations")
+        O("🎨<br>Decision Flow<br>Networks")
+    end
+
+    subgraph Output["📤 Output Layer"]
+        P("📋<br>Decision<br>Analysis")
+        Q("💡<br>Content<br>Ideas")
+        R("📊<br>JSON API<br>Response")
+        S("🎯<br>Confidence<br>Scores")
+    end
+
+    subgraph Features["🎛️ Feature Management"]
+        T("🔧<br>Environment<br>Variables")
+        U("⚙️<br>Optional GPU<br>Acceleration")
+        V("🧪<br>Experimental<br>Features")
+    end
+
+    %% Flow connections
+    A --> B --> C
+    C --> E
+    C --> F
+    C --> G
+
     D --> E
-    P --> E
-    E --> F
-    M -.-> F
-    F --> G
+    D --> F
+    D --> G
+
+    E --> H
+    F --> H
     G --> H
-    H --> I & J & K & L
-    I --> X
-    L --> X
-    style I fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style H fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style J fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style K fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style L fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style B fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
-    style A fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
-    style C fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
-    style D fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
-    style E fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
-    style P fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
-    style F fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
-    style M fill:#111827,stroke:#ff6600,stroke-width:2px,color:#e2e8f0
-    style G fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
-    style X fill:#111827,stroke:#ff6600,stroke-width:2px,color:#e2e8f0
+
+    H --> I
+    H --> J
+    H --> K
+    H --> L
+
+    I --> M
+    J --> M
+    K --> M
+    L --> N
+
+    M --> O
+    N --> O
+
+    O --> P
+    O --> Q
+    O --> R
+    O --> S
+
+    T --> D
+    U --> D
+    V --> D
+
+    %% Styling
+    style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff
+    style H fill:#059669,stroke:#047857,stroke-width:2px,color:#ffffff
+    style M fill:#dc2626,stroke:#b91c1c,stroke-width:2px,color:#ffffff
+    style D fill:#7c3aed,stroke:#6d28d9,stroke-width:2px,color:#ffffff
+    style P fill:#ea580c,stroke:#c2410c,stroke-width:2px,color:#ffffff
 ```
+
+## 🏗️ Architecture Overview
+
+ConvoCanvas follows a modern microservices-inspired architecture with clear separation of concerns:
+
+### **📥 Input Layer**
+- **AI Conversations**: Raw chat exports from Claude, ChatGPT, etc.
+- **SaveMyPhind Integration**: Seamless browser extension workflow
+- **File Support**: Markdown (.md) and text (.txt) formats
+
+### **🚀 API Layer (FastAPI)**
+- **Feature Flags System**: Environment-controlled feature toggles
+- **Tiered Endpoints**: Basic → Enhanced → GPU-accelerated processing
+- **RESTful Design**: Standard HTTP methods with JSON responses
+
+### **🔄 Analysis Engine**
+- **Enhanced Content Analyzer**: Core NLP processing pipeline
+- **Decision Extraction**: AI-powered decision point identification
+- **Sentiment Analysis**: TextBlob-based emotional context detection
+- **Domain Classification**: spaCy-powered technical categorization
+
+### **📈 Visualization Layer**
+- **Interactive Mindmaps**: Plotly-based decision flow networks
+- **Dynamic Layouts**: Force-directed graph positioning
+- **Responsive Design**: Scales with conversation complexity
+
+### **📤 Output Layer**
+- **Structured Analysis**: JSON responses with confidence scores
+- **Content Ideas**: Actionable insights for LinkedIn/blog posts
+- **Decision Tracking**: Historical decision patterns and outcomes
 
 ## 🚀 Quick Start
 
@@ -204,15 +267,14 @@ curl -X POST "http://localhost:8000/api/v2/conversations/analyze-enhanced" \
 - 📋 **Advanced Features**: Context summarization, knowledge graphs (future)
 - 📋 **Monitoring**: Production logging and monitoring (future)
 
-## 🏛️ Architecture
+## 🛠️ Technology Stack
 
-- **Backend**: FastAPI + Python
-  - Conversation parsing (`conversation_parser.py`)
-  - Content analysis (`content_analyzer.py`) 
-  - RESTful API endpoints (`/api/conversations/`)
-- **Input**: Manual conversation exports (Markdown/TXT)
-- **Processing**: Technical concept extraction, theme identification
-- **Output**: Structured JSON with content suggestions
+- **Backend**: FastAPI + Python 3.12+
+- **NLP Processing**: spaCy + TextBlob + scikit-learn
+- **Visualization**: Plotly + NetworkX for interactive mindmaps
+- **Feature Management**: Environment-based feature flags
+- **Production**: Docker + nginx + comprehensive testing
+- **Integration**: SaveMyPhind browser extension support
 
 ## 🛣️ Roadmap
 
