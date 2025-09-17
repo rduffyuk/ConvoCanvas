@@ -27,33 +27,31 @@ ConvoCanvas is my external memory for AI conversations. It processes exported ch
 
 **Real Impact**: Recently used ConvoCanvas to maintain context across a 3-day MPLS automation pipeline troubleshooting session—something impossible with standard AI chat limits.
 
-## 🚀 **Complete AI Automation Stack** 🆕
+## 🚀 **AI-Powered Productivity System** (v0.2.0-alpha)
 
-Beyond conversation processing, ConvoCanvas now includes a **complete local AI automation system**:
+ConvoCanvas is evolving into a comprehensive productivity engine combining AI conversation processing with knowledge management:
 
-### **🧠 Local AI Integration**
-- **LibreChat + LM Studio**: Run AI models entirely on your hardware
-- **Zero API Costs**: No external dependencies for core AI functionality
-- **Complete Privacy**: Sensitive data never leaves your network
-- **Perplexity-Style Search**: Real-time web search with citations
+### **🧠 Experimental Features** (Alpha)
+- **GPU Acceleration**: Optional GPU processing for high-end cards (RTX 4080/4090 tested)
+- **Local AI Integration**: LM Studio compatibility for local models
+- **Enhanced Analysis**: NLP-powered content extraction (in development)
+- **Canvas Generation**: Visual output creation from conversations
 
-### **📁 Universal File Organization**
-- **56 Files Organized**: Automatically processed entire knowledge vault
-- **Smart Categorization**: Date-based folders with intelligent file placement
-- **YAML Frontmatter**: Automated metadata generation for all files
-- **Navigation Systems**: Auto-generated indices for easy knowledge access
+### **📁 Knowledge Management** (In Progress)
+- **Automated Organization**: Smart file categorization based on content
+- **Metadata Generation**: Automatic tagging and frontmatter creation
+- **Obsidian Integration**: Direct vault compatibility for knowledge bases
 
-### **🤖 Automation Scripts Collection**
-- **5 Production Scripts**: Python + Bash automation for productivity
-- **Universal Organizer**: Works with any Obsidian vault structure
-- **Smart Tagging**: Content-based categorization and metadata
-- **Self-Documentation**: System automatically explains what it does
+### **🤖 Automation Tools** (Planning)
+- **Conversation Processing**: Parse and analyze AI chat exports
+- **Content Extraction**: Generate blog ideas, summaries, action items
+- **Workflow Scripts**: Automation helpers for repetitive tasks
 
-### **🔗 Complete Integration Guides**
-- **Step-by-Step Wikis**: Sanitized guides for full setup replication
-- **Configuration Templates**: Ready-to-use configs with security best practices
-- **Real-World Examples**: Network automation project case study
-- **Architecture Diagrams**: Visual flow of complete system
+### **⚠️ Current Limitations**
+- GPU features require NVIDIA cards with 12GB+ VRAM
+- Some features are experimental and may change
+- Documentation is evolving with the codebase
+- Not production-ready - use for experimentation
 
 ## 🔧 How It Works
 
