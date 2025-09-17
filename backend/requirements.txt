@@ -3,3 +3,25 @@ uvicorn[standard]==0.35.0
 python-multipart==0.0.20
 pydantic==2.11.9
 python-dotenv==1.1.1
+
+# Enhanced content analysis dependencies
+spacy==3.8.2
+nltk==3.9.1
+textblob==0.18.0
+scikit-learn==1.5.2
+pandas==2.2.3
+
+# Decision tracking and visualization
+networkx==3.4.2
+plotly==5.24.1
+
+# Performance and caching
+redis==5.2.1
+
+# GPU acceleration (optional)
+# Uncomment if you have NVIDIA GPU with 12GB+ VRAM
+# torch==2.1.0
+# torchvision==0.16.0
+
+# Feature flags (optional)
+# UnleashClient==5.11.0

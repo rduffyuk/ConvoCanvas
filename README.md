@@ -1,6 +1,6 @@
 # ConvoCanvas
 
-> **🚧 Work in Progress - Not Ready for Production Use 🚧**
+> **🚀 Alpha Release - Core Features Working & Tested 🚀**
 
 > **Bridge the context gap between AI conversations and long-term projects.**
 
@@ -8,7 +8,7 @@ ConvoCanvas transforms exported AI conversations into actionable content ideas a
 
 ## ⚠️ Development Status
 
-**This is an active development project and NOT ready for release.** Currently building MVP features with more commits and improvements coming regularly. Expect breaking changes until v1.0.0 release.
+**Alpha Release - Core Features Working!** The MVP is functional with conversation analysis, decision tracking, and visualization capabilities tested and working. Still evolving with regular improvements. Suitable for experimentation and early adoption.
 
 ## 🧠 The Problem
 
@@ -27,33 +27,42 @@ ConvoCanvas is my external memory for AI conversations. It processes exported ch
 
 **Real Impact**: Recently used ConvoCanvas to maintain context across a 3-day MPLS automation pipeline troubleshooting session—something impossible with standard AI chat limits.
 
-## 🚀 **Complete AI Automation Stack** 🆕
+## 🚀 **AI-Powered Productivity System** (v0.2.0-alpha)
 
-Beyond conversation processing, ConvoCanvas now includes a **complete local AI automation system**:
+ConvoCanvas is evolving into a comprehensive productivity engine combining AI conversation processing with knowledge management:
 
-### **🧠 Local AI Integration**
-- **LibreChat + LM Studio**: Run AI models entirely on your hardware
-- **Zero API Costs**: No external dependencies for core AI functionality
-- **Complete Privacy**: Sensitive data never leaves your network
-- **Perplexity-Style Search**: Real-time web search with citations
+### **✅ Core Features** (Working & Tested)
+- **Enhanced Analysis**: NLP-powered decision extraction with confidence scoring
+- **Interactive Mindmaps**: Plotly-based decision flow visualizations
+- **Sentiment Analysis**: Emotional context detection around decisions
+- **Technical Domain Classification**: Auto-categorize conversations (AI/ML, DevOps, etc.)
+- **Feature Flags System**: Environment-based feature toggles
+- **Conversation Processing**: Parse and analyze AI chat exports
 
-### **📁 Universal File Organization**
-- **56 Files Organized**: Automatically processed entire knowledge vault
-- **Smart Categorization**: Date-based folders with intelligent file placement
-- **YAML Frontmatter**: Automated metadata generation for all files
-- **Navigation Systems**: Auto-generated indices for easy knowledge access
+### **🚧 Experimental Features** (Alpha/Optional)
+- **GPU Acceleration**: Optional GPU processing for high-end cards (RTX 4080/4090 tested)
+- **Local AI Integration**: LM Studio compatibility for local models
+- **Canvas Generation**: Visual output creation from conversations
 
-### **🤖 Automation Scripts Collection**
-- **5 Production Scripts**: Python + Bash automation for productivity
-- **Universal Organizer**: Works with any Obsidian vault structure
-- **Smart Tagging**: Content-based categorization and metadata
-- **Self-Documentation**: System automatically explains what it does
+### **📁 Knowledge Management** (In Progress)
+- **Automated Organization**: Smart file categorization based on content
+- **Metadata Generation**: Automatic tagging and frontmatter creation
+- **Obsidian Integration**: Direct vault compatibility for knowledge bases
 
-### **🔗 Complete Integration Guides**
-- **Step-by-Step Wikis**: Sanitized guides for full setup replication
-- **Configuration Templates**: Ready-to-use configs with security best practices
-- **Real-World Examples**: Network automation project case study
-- **Architecture Diagrams**: Visual flow of complete system
+### **⚠️ Current Limitations**
+- GPU features require NVIDIA cards with 12GB+ VRAM (but gracefully disabled if unavailable)
+- Alpha software - expect UI/UX improvements in future releases
+- Some advanced features still experimental
+- Best suited for technical users familiar with API endpoints
+
+### **🎛️ Feature Flags**
+ConvoCanvas uses environment variables to control feature availability:
+```bash
+ENABLE_ENHANCED_ANALYSIS=true  # Enable advanced NLP analysis
+ENABLE_CANVAS_GENERATION=true  # Enable visual output generation
+ENABLE_NLP=true               # Enable natural language processing
+DISABLE_GPU=true              # Force disable GPU acceleration
+```
 
 ## 🔧 How It Works
 
@@ -65,60 +74,123 @@ Beyond conversation processing, ConvoCanvas now includes a **complete local AI a
 ```mermaid
 ---
 config:
-  layout: fixed
   theme: redux-dark
   look: neo
 ---
 flowchart TB
- subgraph subGraph0[" "]
-    direction LR
-        I("💡<br>LinkedIn Ideas")
-        H("📦<br>JSON Response")
-        J("✍️<br>Blog Topics")
-        K("📊<br>Mermaid")
-        L("🎨<br>Draw.io")
-  end
- subgraph subGraph1["ConvoCanvas Architecture"]
-        B("📄<br>Save My Chatbot")
-        A("🤖<br>Claude AI")
-        C("🌐<br>Edge Browser")
-        D("🗂️<br>Obsidian Vault")
-        E("📜<br>Bash Script")
-        P("⏰<br>Crontab")
-        F("🚀<br>FastAPI Backend")
-        M("📂<br>GitHub Repo")
-        G("🧠<br>Content Engine")
-        subGraph0
-        X("📈<br>Analytics")
-  end
-    A --> B
-    B --> C
-    C --> D
+    subgraph Input["📥 Input Layer"]
+        A("🤖<br>AI Conversations")
+        B("📄<br>SaveMyPhind<br>Export")
+        C("📋<br>Markdown/TXT<br>Files")
+    end
+
+    subgraph API["🚀 ConvoCanvas API (FastAPI)"]
+        D("🎛️<br>Feature Flags<br>System")
+        E("📡<br>/api/conversations/<br>upload")
+        F("🧠<br>/api/v2/conversations/<br>analyze-enhanced")
+        G("⚡<br>/api/v3/conversations/<br>gpu-accelerated")
+    end
+
+    subgraph Processing["🔄 Analysis Engine"]
+        H("📊<br>Enhanced Content<br>Analyzer")
+        I("💭<br>Decision<br>Extraction")
+        J("😊<br>Sentiment<br>Analysis")
+        K("🏷️<br>Technical Domain<br>Classification")
+        L("🧮<br>NLP Pipeline<br>spaCy + TextBlob")
+    end
+
+    subgraph Visualization["📈 Visualization Layer"]
+        M("🗺️<br>Interactive<br>Mindmaps")
+        N("📊<br>Plotly<br>Visualizations")
+        O("🎨<br>Decision Flow<br>Networks")
+    end
+
+    subgraph Output["📤 Output Layer"]
+        P("📋<br>Decision<br>Analysis")
+        Q("💡<br>Content<br>Ideas")
+        R("📊<br>JSON API<br>Response")
+        S("🎯<br>Confidence<br>Scores")
+    end
+
+    subgraph Features["🎛️ Feature Management"]
+        T("🔧<br>Environment<br>Variables")
+        U("⚙️<br>Optional GPU<br>Acceleration")
+        V("🧪<br>Experimental<br>Features")
+    end
+
+    %% Flow connections
+    A --> B --> C
+    C --> E
+    C --> F
+    C --> G
+
     D --> E
-    P --> E
-    E --> F
-    M -.-> F
-    F --> G
+    D --> F
+    D --> G
+
+    E --> H
+    F --> H
     G --> H
-    H --> I & J & K & L
-    I --> X
-    L --> X
-    style I fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style H fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style J fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style K fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style L fill:#111827,stroke:#00ff41,stroke-width:2px,color:#e2e8f0
-    style B fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
-    style A fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
-    style C fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
-    style D fill:#111827,stroke:#00ffff,stroke-width:2px,color:#e2e8f0
-    style E fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
-    style P fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
-    style F fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
-    style M fill:#111827,stroke:#ff6600,stroke-width:2px,color:#e2e8f0
-    style G fill:#111827,stroke:#8000ff,stroke-width:2px,color:#e2e8f0
-    style X fill:#111827,stroke:#ff6600,stroke-width:2px,color:#e2e8f0
+
+    H --> I
+    H --> J
+    H --> K
+    H --> L
+
+    I --> M
+    J --> M
+    K --> M
+    L --> N
+
+    M --> O
+    N --> O
+
+    O --> P
+    O --> Q
+    O --> R
+    O --> S
+
+    T --> D
+    U --> D
+    V --> D
+
+    %% Styling
+    style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff
+    style H fill:#059669,stroke:#047857,stroke-width:2px,color:#ffffff
+    style M fill:#dc2626,stroke:#b91c1c,stroke-width:2px,color:#ffffff
+    style D fill:#7c3aed,stroke:#6d28d9,stroke-width:2px,color:#ffffff
+    style P fill:#ea580c,stroke:#c2410c,stroke-width:2px,color:#ffffff
 ```
+
+## 🏗️ Architecture Overview
+
+ConvoCanvas follows a modern microservices-inspired architecture with clear separation of concerns:
+
+### **📥 Input Layer**
+- **AI Conversations**: Raw chat exports from Claude, ChatGPT, etc.
+- **SaveMyPhind Integration**: Seamless browser extension workflow
+- **File Support**: Markdown (.md) and text (.txt) formats
+
+### **🚀 API Layer (FastAPI)**
+- **Feature Flags System**: Environment-controlled feature toggles
+- **Tiered Endpoints**: Basic → Enhanced → GPU-accelerated processing
+- **RESTful Design**: Standard HTTP methods with JSON responses
+
+### **🔄 Analysis Engine**
+- **Enhanced Content Analyzer**: Core NLP processing pipeline
+- **Decision Extraction**: AI-powered decision point identification
+- **Sentiment Analysis**: TextBlob-based emotional context detection
+- **Domain Classification**: spaCy-powered technical categorization
+
+### **📈 Visualization Layer**
+- **Interactive Mindmaps**: Plotly-based decision flow networks
+- **Dynamic Layouts**: Force-directed graph positioning
+- **Responsive Design**: Scales with conversation complexity
+
+### **📤 Output Layer**
+- **Structured Analysis**: JSON responses with confidence scores
+- **Content Ideas**: Actionable insights for LinkedIn/blog posts
+- **Decision Tracking**: Historical decision patterns and outcomes
 
 ## 🚀 Quick Start
 
@@ -149,14 +221,20 @@ docker-compose up --build
 ### Try It Out
 
 ```bash
-# Upload a conversation file
+# Test the API endpoints
+curl -X GET http://localhost:8000/
+
+# Check feature flags
+curl -X GET http://localhost:8000/feature-flags
+
+# Upload a conversation file (basic parsing)
 curl -X POST "http://localhost:8000/api/conversations/upload" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@your-conversation.md"
 
-# Analyze content
-curl -X POST "http://localhost:8000/api/conversations/analyze" \
+# Enhanced analysis with decision tracking and mindmaps
+curl -X POST "http://localhost:8000/api/v2/conversations/analyze-enhanced" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@your-conversation.md"
@@ -165,9 +243,12 @@ curl -X POST "http://localhost:8000/api/conversations/analyze" \
 ## 🏗️ Current Status
 
 ### **Core Platform** ✅
-- ✅ **Basic MVP**: Core conversation parsing and content extraction
-- ✅ **API Foundation**: Upload and analyze endpoints (basic functionality)
-- ✅ **Content Extraction**: Extract LinkedIn posts, blog topics, technical concepts
+- ✅ **Enhanced Analysis API**: Decision extraction with confidence scoring
+- ✅ **Interactive Mindmaps**: Plotly-based decision flow visualizations
+- ✅ **Sentiment Analysis**: Emotional context detection around decisions
+- ✅ **Technical Domain Classification**: Auto-categorize conversations by domain
+- ✅ **Feature Flags System**: Environment-based feature toggles
+- ✅ **API Foundation**: Multiple endpoint tiers (basic, enhanced, GPU)
 - ✅ **SaveMyPhind Integration**: Parse exported conversation formats
 
 ### **Complete Automation System** 🆕 ✅
@@ -178,22 +259,22 @@ curl -X POST "http://localhost:8000/api/conversations/analyze" \
 - ✅ **Perplexity-Style Search**: Real-time web search with citations
 - ✅ **Auto-Documentation**: Self-generating session logs and system updates
 
-### **Production Features** 🚧
-- 🚧 **Error Handling**: Robust error handling and validation (in progress)
-- 🚧 **Testing Suite**: Unit and integration tests (in progress)
-- 🚧 **Web Interface**: Simple upload/analysis UI (planned)
-- 📋 **Advanced Features**: AI-powered context summarization (planned)
-- 📋 **Production Ready**: Security, logging, monitoring (future)
+### **Production Features** ✅
+- ✅ **Error Handling**: Graceful degradation for missing dependencies
+- ✅ **Testing Framework**: Comprehensive API endpoint testing completed
+- ✅ **Production Config**: Docker + nginx setup with deployment guides
+- 🚧 **Web Interface**: API-based (UI planned for future release)
+- 📋 **Advanced Features**: Context summarization, knowledge graphs (future)
+- 📋 **Monitoring**: Production logging and monitoring (future)
 
-## 🏛️ Architecture
+## 🛠️ Technology Stack
 
-- **Backend**: FastAPI + Python
-  - Conversation parsing (`conversation_parser.py`)
-  - Content analysis (`content_analyzer.py`) 
-  - RESTful API endpoints (`/api/conversations/`)
-- **Input**: Manual conversation exports (Markdown/TXT)
-- **Processing**: Technical concept extraction, theme identification
-- **Output**: Structured JSON with content suggestions
+- **Backend**: FastAPI + Python 3.12+
+- **NLP Processing**: spaCy + TextBlob + scikit-learn
+- **Visualization**: Plotly + NetworkX for interactive mindmaps
+- **Feature Management**: Environment-based feature flags
+- **Production**: Docker + nginx + comprehensive testing
+- **Integration**: SaveMyPhind browser extension support
 
 ## 🛣️ Roadmap
 

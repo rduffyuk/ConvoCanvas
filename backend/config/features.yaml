@@ -1,0 +1,42 @@
+# Feature Flag Configuration for ConvoCanvas
+# This file controls which experimental features are enabled
+
+# GPU Acceleration (requires NVIDIA GPU with 12GB+ VRAM)
+gpu_acceleration:
+  enabled: auto  # auto, true, false
+  min_vram_gb: 12
+  supported_gpus:
+    - "RTX 4080"
+    - "RTX 4090"
+    - "RTX 3090"
+    - "RTX 3090 Ti"
+    - "RTX A6000"
+
+# Enhanced Analysis Features
+enhanced_analysis:
+  enabled: true
+  require_gpu: false
+
+# Canvas Generation
+canvas_generation:
+  enabled: true
+  require_gpu: false
+
+# Local AI Integration (LM Studio)
+local_ai_integration:
+  enabled: false
+  lm_studio_url: "http://localhost:1234"
+  ollama_url: "http://localhost:11434"
+
+# NLP Processing
+nlp_processing:
+  enabled: true
+  model: "en_core_web_sm"  # spacy model
+
+# Future: Unleash Integration
+unleash:
+  enabled: false
+  api_url: "https://unleash.example.com/api"
+  api_key: ""
+  app_name: "convocanvas"
+  environment: "development"
