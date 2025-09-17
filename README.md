@@ -1,6 +1,6 @@
 # ConvoCanvas
 
-> **🚧 Work in Progress - Not Ready for Production Use 🚧**
+> **🚀 Alpha Release - Core Features Working & Tested 🚀**
 
 > **Bridge the context gap between AI conversations and long-term projects.**
 
@@ -8,7 +8,7 @@ ConvoCanvas transforms exported AI conversations into actionable content ideas a
 
 ## ⚠️ Development Status
 
-**This is an active development project and NOT ready for release.** Currently building MVP features with more commits and improvements coming regularly. Expect breaking changes until v1.0.0 release.
+**Alpha Release - Core Features Working!** The MVP is functional with conversation analysis, decision tracking, and visualization capabilities tested and working. Still evolving with regular improvements. Suitable for experimentation and early adoption.
 
 ## 🧠 The Problem
 
@@ -31,10 +31,17 @@ ConvoCanvas is my external memory for AI conversations. It processes exported ch
 
 ConvoCanvas is evolving into a comprehensive productivity engine combining AI conversation processing with knowledge management:
 
-### **🧠 Experimental Features** (Alpha)
+### **✅ Core Features** (Working & Tested)
+- **Enhanced Analysis**: NLP-powered decision extraction with confidence scoring
+- **Interactive Mindmaps**: Plotly-based decision flow visualizations
+- **Sentiment Analysis**: Emotional context detection around decisions
+- **Technical Domain Classification**: Auto-categorize conversations (AI/ML, DevOps, etc.)
+- **Feature Flags System**: Environment-based feature toggles
+- **Conversation Processing**: Parse and analyze AI chat exports
+
+### **🚧 Experimental Features** (Alpha/Optional)
 - **GPU Acceleration**: Optional GPU processing for high-end cards (RTX 4080/4090 tested)
 - **Local AI Integration**: LM Studio compatibility for local models
-- **Enhanced Analysis**: NLP-powered content extraction (in development)
 - **Canvas Generation**: Visual output creation from conversations
 
 ### **📁 Knowledge Management** (In Progress)
@@ -42,16 +49,20 @@ ConvoCanvas is evolving into a comprehensive productivity engine combining AI co
 - **Metadata Generation**: Automatic tagging and frontmatter creation
 - **Obsidian Integration**: Direct vault compatibility for knowledge bases
 
-### **🤖 Automation Tools** (Planning)
-- **Conversation Processing**: Parse and analyze AI chat exports
-- **Content Extraction**: Generate blog ideas, summaries, action items
-- **Workflow Scripts**: Automation helpers for repetitive tasks
-
 ### **⚠️ Current Limitations**
-- GPU features require NVIDIA cards with 12GB+ VRAM
-- Some features are experimental and may change
-- Documentation is evolving with the codebase
-- Not production-ready - use for experimentation
+- GPU features require NVIDIA cards with 12GB+ VRAM (but gracefully disabled if unavailable)
+- Alpha software - expect UI/UX improvements in future releases
+- Some advanced features still experimental
+- Best suited for technical users familiar with API endpoints
+
+### **🎛️ Feature Flags**
+ConvoCanvas uses environment variables to control feature availability:
+```bash
+ENABLE_ENHANCED_ANALYSIS=true  # Enable advanced NLP analysis
+ENABLE_CANVAS_GENERATION=true  # Enable visual output generation
+ENABLE_NLP=true               # Enable natural language processing
+DISABLE_GPU=true              # Force disable GPU acceleration
+```
 
 ## 🔧 How It Works
 
@@ -147,14 +158,20 @@ docker-compose up --build
 ### Try It Out
 
 ```bash
-# Upload a conversation file
+# Test the API endpoints
+curl -X GET http://localhost:8000/
+
+# Check feature flags
+curl -X GET http://localhost:8000/feature-flags
+
+# Upload a conversation file (basic parsing)
 curl -X POST "http://localhost:8000/api/conversations/upload" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@your-conversation.md"
 
-# Analyze content
-curl -X POST "http://localhost:8000/api/conversations/analyze" \
+# Enhanced analysis with decision tracking and mindmaps
+curl -X POST "http://localhost:8000/api/v2/conversations/analyze-enhanced" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@your-conversation.md"
@@ -163,9 +180,12 @@ curl -X POST "http://localhost:8000/api/conversations/analyze" \
 ## 🏗️ Current Status
 
 ### **Core Platform** ✅
-- ✅ **Basic MVP**: Core conversation parsing and content extraction
-- ✅ **API Foundation**: Upload and analyze endpoints (basic functionality)
-- ✅ **Content Extraction**: Extract LinkedIn posts, blog topics, technical concepts
+- ✅ **Enhanced Analysis API**: Decision extraction with confidence scoring
+- ✅ **Interactive Mindmaps**: Plotly-based decision flow visualizations
+- ✅ **Sentiment Analysis**: Emotional context detection around decisions
+- ✅ **Technical Domain Classification**: Auto-categorize conversations by domain
+- ✅ **Feature Flags System**: Environment-based feature toggles
+- ✅ **API Foundation**: Multiple endpoint tiers (basic, enhanced, GPU)
 - ✅ **SaveMyPhind Integration**: Parse exported conversation formats
 
 ### **Complete Automation System** 🆕 ✅
@@ -176,12 +196,13 @@ curl -X POST "http://localhost:8000/api/conversations/analyze" \
 - ✅ **Perplexity-Style Search**: Real-time web search with citations
 - ✅ **Auto-Documentation**: Self-generating session logs and system updates
 
-### **Production Features** 🚧
-- 🚧 **Error Handling**: Robust error handling and validation (in progress)
-- 🚧 **Testing Suite**: Unit and integration tests (in progress)
-- 🚧 **Web Interface**: Simple upload/analysis UI (planned)
-- 📋 **Advanced Features**: AI-powered context summarization (planned)
-- 📋 **Production Ready**: Security, logging, monitoring (future)
+### **Production Features** ✅
+- ✅ **Error Handling**: Graceful degradation for missing dependencies
+- ✅ **Testing Framework**: Comprehensive API endpoint testing completed
+- ✅ **Production Config**: Docker + nginx setup with deployment guides
+- 🚧 **Web Interface**: API-based (UI planned for future release)
+- 📋 **Advanced Features**: Context summarization, knowledge graphs (future)
+- 📋 **Monitoring**: Production logging and monitoring (future)
 
 ## 🏛️ Architecture
 
